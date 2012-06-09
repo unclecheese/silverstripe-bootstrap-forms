@@ -26,6 +26,7 @@ $form = new BootstrapForm(
 The following example showcases all of the options available on BootstrapForm and the BootstrapFormField extensions.
 
 ```php
+<?php
   public function FancyForm() {
 		return Object::create("BootstrapForm",			
 			$this,
