@@ -85,12 +85,10 @@ class BootstrapForm extends Form {
 				$nativeCandidate = $className;
 				if(SSViewer::hasTemplate($bootstrapCandidate)) {
 					$f->setTemplate($bootstrapCandidate);
-					//echo "set $bootstrapCandidate for {$f->getName()}, a {$f->class} field holder {$f->getFieldHolderTemplate()}<br />";
 					break;
 				}
 				elseif(SSViewer::hasTemplate($nativeCandidate)) {
 					$f->setTemplate($nativeCandidate);
-					//echo "set $nativeCandidate for {$f->getName()}, a {$f->class} field holder {$f->getFieldHolderTemplate()}<br />";
 					break;
 				}
 				else echo "fail<br />";
