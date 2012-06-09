@@ -1,7 +1,7 @@
 silverstripe-bootstrap-forms
 ============================
 
-Allows the creation of forms compatible with the Twitter Bootstrap CSS framework in SilverStripe
+Allows the creation of forms compatible with the Twitter Bootstrap CSS framework in SilverStripe 3.
 
 ## Basic Usage
 Just use the "BootstrapForm" subclass instead of Form.
