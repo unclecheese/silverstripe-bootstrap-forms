@@ -8,15 +8,15 @@ Just use the "BootstrapForm" subclass instead of Form.
 ```php
 <?php
 
-$form = new BootstrapForm(
+$form = BootstrapForm::create(
   $this,
   "MyBootstrapForm",
-  new FieldList(
-    Object::create("TextField","Name")
+  FieldList::create(
+    TextField::create("Name")
       ->addHelpText('Enter some text above')
   ),
-  new FieldList(
-    Object::create("FormAction","doStuff","Click this!")
+  FieldList::create(
+    FormAction::create("doStuff","Click this!")
       ->setStyle("success")
   )
 );
