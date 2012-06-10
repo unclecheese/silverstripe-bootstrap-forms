@@ -28,46 +28,46 @@ The following example showcases all of the options available on BootstrapForm an
 ```php
 <?php
 public function FancyForm() {
-	return Object::create("BootstrapForm",			
+	return BootstrapForm::create(
 		$this,
 		"FancyForm",
-		new FieldList(
-			Object::create("TextField","Text")->prependText("$")->appendText(".00"),
-			Object::create("CheckboxSetField","InlineCheckboxes","Inline Checkboxes")
+		FieldList::create(
+			TextField::create("ATextField","A text field with prepended and appended text")->prependText("$")->appendText(".00"),
+			CheckboxSetField::create("InlineCheckboxes","Inline Checkboxes")
 				->setSource(DataList::create("SiteTree"))
 				->setInline(true),
-			Object::create("CheckboxSetField","Checkboxes","Checkboxes")
+			CheckboxSetField::create("Checkboxes","Checkboxes")
 				->setSource(DataList::create("SiteTree"))					
 				->addHelpText("Check some of these."),
-			Object::create("OptionsetField","InlineRadios","Inline Radios")
+			OptionsetField::create("InlineRadios","Inline Radios")
 				->setSource(DataList::create("SiteTree")->map('ID','Title'))
 				->setInline(true),					
 
-			Object::create("OptionsetField","Radios","Radios")
+			OptionsetField::create("Radios","Radios")
 				->setSource(DataList::create("SiteTree")->map('ID','Title'))					
 				->addHelpText("Check one of these."),
 
-			Object::create("DropdownField","Dropdown","Dropdown")
+			DropdownField::create("Dropdown","Dropdown")
 				->setSource(DataList::create("SiteTree")->map('ID','Title'))
 				->addInlineHelpText("<-- look at that!"),
-			Object::create("TextareaField","Textarea","Textarea"),
-			Object::create("TextField","BigText","Massive text field")
+			TextareaField::create("Textarea","Textarea"),
+			TextField::create("BigText","Massive text field")
 				->setSize("xxlarge"),
 
-			Object::create("TextField","SmallText","Tiny text field")
+			TextField::create("SmallText","Tiny text field")
 				->setSize("mini")
 
 		),
-		new FieldList(
-			Object::create("FormAction","yes","YES!")
+		FieldList::create(
+			FormAction::create("yes","YES!")
 				->setStyle("success"),
-			Object::create("FormAction","no","NO!")
+			FormAction::create("no","NO!")
 				->setStyle("danger"),
-			Object::create("FormAction","maybe","Maybe...")
+			FormAction::create("maybe","Maybe...")
 				->setStyle("info"),
-			Object::create("FormAction","sure","Sure!")
+			FormAction::create("sure","Sure!")
 				->setStyle("primary"),
-			Object::create("FormAction","uhoh","Uh-oh")
+			FormAction::create("uhoh","Uh-oh")
 				->setStyle("warning")
 		)
 	)
