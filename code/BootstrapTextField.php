@@ -52,5 +52,19 @@ class BootstrapTextField extends BootstrapFormField {
 		$s = trim(strtolower($size));
 		return $this->owner->addExtraClass("input-{$s}");
 	}
-	
+
+
+
+	/**
+	 * Sets the width of the text field to span grid columns
+	 *
+	 * @param string $span
+	 * @return BootstrapTextField
+	 */
+	public function setSpan($span) {
+		$s = trim(strtolower($span));
+		return $this->owner->addExtraClass("span{$s}");
+	}
+
+
 }
