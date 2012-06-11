@@ -16,3 +16,4 @@ Object::add_extension("FormField", "BootstrapFormField");
 Object::add_extension("TextField", "BootstrapTextField");
 Object::add_extension("OptionsetField", "BootstrapOptionsetField");
 Object::add_extension("FormAction","BootstrapFormAction");
+Object::add_extension("TextareaField", "BootstrapTextField");
