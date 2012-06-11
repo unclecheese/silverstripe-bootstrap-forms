@@ -38,7 +38,7 @@ class BootstrapFormAction extends DataExtension {
 	 * @param string $size
 	 * @return BootstrapFormAction
 	 */
-	public function setStyle($size) {
+	public function setSize($size) {
 		$this->owner->ButtonSize = trim(strtolower($size));
 		return $this->owner;
 	}
