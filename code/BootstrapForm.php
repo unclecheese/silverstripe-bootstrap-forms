@@ -49,6 +49,41 @@ class BootstrapForm extends Form {
 
 
 	/**
+	 * Changes the templates of all the {@link FormField}
+	 * objects in a given {@link FieldList} object to those
+	 * that work the Bootstrap framework
+	 *
+	 * @param FieldList $fields
+	 */
+	public static function apply_bootstrap_to_fieldlist($fields) {
+		foreach($fields as $f) {
+			$template = "Bootstrap{$f->class}_holder";			
+			if(SSViewer::hasTemplate($template)) {					
+				$f->setFieldHolderTemplate($template);				
+			}
+			else {				
+				$f->setFieldHolderTemplate("BootstrapFieldHolder");
+			}
+
+			foreach(array_reverse(ClassInfo::ancestry($f)) as $className) {						
+				$bootstrapCandidate = "Bootstrap{$className}";
+				$nativeCandidate = $className;
+				if(SSViewer::hasTemplate($bootstrapCandidate)) {
+					$f->setTemplate($bootstrapCandidate);
+					break;
+				}
+				elseif(SSViewer::hasTemplate($nativeCandidate)) {
+					$f->setTemplate($nativeCandidate);
+					break;
+				}
+			}
+		}		
+	}
+
+
+
+
+	/**
 	 * Applies the Bootstrap transformation to the fields and actiosn
 	 * of the form
 	 *
@@ -71,29 +106,7 @@ class BootstrapForm extends Form {
 	 * @return BootstrapForm
 	 */
 	protected function applyBootstrapToFieldList($fields) {
-		foreach($fields as $f) {
-			$template = "Bootstrap{$f->class}_holder";			
-			if(SSViewer::hasTemplate($template)) {				
-				$f->setFieldHolderTemplate($template);				
-			}
-			else {
-				$f->setFieldHolderTemplate("BootstrapFieldHolder");
-			}
-
-			foreach(array_reverse(ClassInfo::ancestry($f)) as $className) {						
-				$bootstrapCandidate = "Bootstrap{$className}";
-				$nativeCandidate = $className;
-				if(SSViewer::hasTemplate($bootstrapCandidate)) {
-					$f->setTemplate($bootstrapCandidate);
-					break;
-				}
-				elseif(SSViewer::hasTemplate($nativeCandidate)) {
-					$f->setTemplate($nativeCandidate);
-					break;
-				}
-				else echo "fail<br />";
-			}
-		}
+		self::apply_bootstrap_to_fieldlist($fields);
 		return $this;
 	}
 
