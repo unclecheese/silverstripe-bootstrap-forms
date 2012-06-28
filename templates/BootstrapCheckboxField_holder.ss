@@ -1,4 +1,4 @@
-<div class="control-group" id="$Name">
+<div class="control-group" id="$Name" $HolderAttributes>
     <div class="controls">
         <label class="checkbox" for="$ID">
             <input $AttributesHTML>

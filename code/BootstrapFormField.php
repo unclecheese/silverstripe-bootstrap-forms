@@ -10,7 +10,10 @@
 class BootstrapFormField extends DataExtension {
 
 
+	protected $holderAttributes = array ();
 
+
+	
 	/**
 	 * Adds a block of help text to the form field. (HTML safe).
 	 * By default, this text appears below a field and its label.
@@ -37,5 +40,21 @@ class BootstrapFormField extends DataExtension {
 		return $this->owner;
 	}
 
+
+
+	public function setHolderAttribute($key, $val) {
+		$this->holderAttributes[$key] = $val;
+		return $this->owner;
+	}
+
+
+
+	public function HolderAttributes() {
+		$ret = "";
+		foreach($this->holderAttributes as $k => $v) {
+			$ret .= "$k=\"$v\" ";
+		}
+		return $ret;
+	}
 	
 }
