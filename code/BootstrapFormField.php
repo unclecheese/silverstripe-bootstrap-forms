@@ -10,7 +10,11 @@
 class BootstrapFormField extends DataExtension {
 
 
+	/**
+	 * @var array Attributes and values for the holder tag of the form field
+	 */
 	protected $holderAttributes = array ();
+
 
 
 	
@@ -42,6 +46,14 @@ class BootstrapFormField extends DataExtension {
 
 
 
+	/**
+	 * Sets an attribute on the wrapper <div> for the formfield
+	 *
+	 * @param string $key The attribute name
+	 * @param string $val The value for the attribute
+	 *
+	 * @return BootstrapFormField
+	 */
 	public function setHolderAttribute($key, $val) {
 		$this->holderAttributes[$key] = $val;
 		return $this->owner;
@@ -49,10 +61,15 @@ class BootstrapFormField extends DataExtension {
 
 
 
+	/**
+	 * Returns the list of attributes suitable for an HTML tag
+	 *
+	 * @return string
+	 */
 	public function HolderAttributes() {
 		$ret = "";
 		foreach($this->holderAttributes as $k => $v) {
-			$ret .= "$k=\"$v\" ";
+			$ret .= "$k=\"".Convert::raw2att($k)."$v\" ";
 		}
 		return $ret;
 	}
