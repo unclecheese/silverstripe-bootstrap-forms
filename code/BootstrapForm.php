@@ -22,6 +22,15 @@ class BootstrapForm extends Form {
 
 
 	/**
+	 * @var bool If true, jQuery will not be included in order
+	 *			to avoid collisions
+	 */
+	protected static $jquery_included = false;
+
+
+
+
+	/**
 	 * @var string The template that will render this form
 	 */
 	protected $template = "BootstrapForm";
@@ -46,6 +55,17 @@ class BootstrapForm extends Form {
 		self::$bootstrap_included = $bool;
 	}
 
+
+
+
+	/**
+	 * Sets form to disable/enable inclusion of jQuery
+	 *
+	 * @param bool $bool
+	 */
+	public static function set_jquery_included($bool = true) {
+		self::$jquery_included = $bool;
+	}
 
 
 	/**
@@ -151,6 +171,10 @@ class BootstrapForm extends Form {
 		if(!self::$bootstrap_included) {
 			Requirements::css('bootstrap_forms/css/bootstrap.css');
 		}
+		if(!self::$jquery_included) {
+			Requirements::javascript(THIRDPARTY_DIR."/jquery/jquery.js");
+		}
+		Requirements::javascript("bootstrap_forms/javascript/bootstrap_forms.js");
 		$this->addExtraClass("form-{$this->formLayout}");
 		$this->applyBootstrap();
 		return parent::forTemplate();
