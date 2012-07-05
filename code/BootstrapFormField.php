@@ -66,11 +66,11 @@ class BootstrapFormField extends DataExtension {
 	 *
 	 * @return string
 	 */
-	public function HolderAttributes() {
+	public function HolderAttributes() {		
 		$ret = "";
 		foreach($this->holderAttributes as $k => $v) {
-			$ret .= "$k=\"".Convert::raw2att($k)."$v\" ";
-		}
+			$ret .= "$k=\"".Convert::raw2att($v)."\" ";
+		}		
 		return $ret;
 	}
 	
