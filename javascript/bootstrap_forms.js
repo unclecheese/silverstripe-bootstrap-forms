@@ -13,11 +13,13 @@ $(function() {
 	    });
 	}
 
-
-  
-    $('select.chosen').chosen({
-      disable_search_threshold: $(this).attr('data-search-threshold')
-    });
+	
+	
+	if($('select.chosen').length) {
+	    $('select.chosen').chosen({
+	      disable_search_threshold: $(this).attr('data-search-threshold')
+	    });
+    }
 
 
 	if($('textarea[maxlength]').length) {		
