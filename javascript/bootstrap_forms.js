@@ -1,16 +1,19 @@
 (function($) {
 $(function() {
 
-	if($('textarea.wysiwyg').length) {		
-	    $('textarea.wysiwyg').tinymce({
-	      theme: "advanced",
-	      theme_advanced_toolbar_location: "top",
-	      theme_advanced_buttons1: $(this).attr('data-buttons'),
-	      theme_advanced_buttons2: "",
-	      theme_advanced_buttons3: "",
-	      theme_advanced_blockformats: $(this).attr('data-blockformats'),
-	      content_css: ($('base')).attr('href') + $(this).attr('data-css')
-	    });
+	if($('textarea.wysiwyg').length) {
+		$('textarea.wysiwyg').each(function() {
+			var $t = $(this);
+		    $t.tinymce({
+		      theme: "advanced",
+		      theme_advanced_toolbar_location: "top",
+		      theme_advanced_buttons1: $t.attr('data-buttons'),
+		      theme_advanced_buttons2: "",
+		      theme_advanced_buttons3: "",
+		      theme_advanced_blockformats: $t.attr('data-blockformats'),
+		      content_css: ($('base')).attr('href') + $t.attr('data-css')
+		    });
+		})
 	}
 
 	
