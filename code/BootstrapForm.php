@@ -168,10 +168,10 @@ class BootstrapForm extends Form {
 	 * @return string
 	 */
 	public function forTemplate() {
-		if(!self::$bootstrap_included) {
+		if(!$this->stat('bootstrap_included')) {
 			Requirements::css('bootstrap_forms/css/bootstrap.css');
 		}
-		if(!self::$jquery_included) {
+		if(!$this->stat('jquery_included')) {
 			Requirements::javascript(THIRDPARTY_DIR."/jquery/jquery.js");
 		}
 		Requirements::javascript("bootstrap_forms/javascript/bootstrap_forms.js");
