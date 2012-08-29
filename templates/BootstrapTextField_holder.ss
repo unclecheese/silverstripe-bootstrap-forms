@@ -1,4 +1,4 @@
-<div id="$Name" $HolderAttributes>
+<div id="$Name" class="$HolderClasses" $HolderAttributes>
     <label class="control-label" for="$ID">$Title</label>
     <div class="controls">    
         <% if AppendedText || PrependedText %>
@@ -15,7 +15,6 @@
         <% if InlineHelpText %>
         <span class="help-inline">$InlineHelpText</span>
         <% end_if %>
-
 
     </div>
 </div>
