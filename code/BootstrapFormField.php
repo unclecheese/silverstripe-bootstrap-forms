@@ -13,9 +13,9 @@ class BootstrapFormField extends DataExtension {
 	/**
 	 * @var array Attributes and values for the holder tag of the form field
 	 */
-	protected $holderAttributes = array ();
-
-
+	protected $holderAttributes = array(
+		"class" => "control-group"
+	);
 
 	
 	/**
@@ -70,7 +70,7 @@ class BootstrapFormField extends DataExtension {
 		$ret = "";
 		foreach($this->holderAttributes as $k => $v) {
 			$ret .= "$k=\"".Convert::raw2att($v)."\" ";
-		}		
+		}
 		return $ret;
 	}
 	

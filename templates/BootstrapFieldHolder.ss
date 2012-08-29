@@ -1,4 +1,4 @@
-<div class="control-group" id="$Name" $HolderAttributes>
+<div id="$Name" $HolderAttributes>
     <label class="control-label" for="$ID">$Title</label>
     <div class="controls">
         $Field
