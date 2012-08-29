@@ -1,4 +1,4 @@
-<div id="$Name" $HolderAttributes>
+<div id="$Name" class="$HolderClasses" $HolderAttributes>
     <div class="controls">
         <label class="checkbox" for="$ID">
             <input $AttributesHTML>
