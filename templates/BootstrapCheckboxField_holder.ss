@@ -1,4 +1,4 @@
-<div class="control-group" id="$Name" $HolderAttributes>
+<div id="$Name" $HolderAttributes>
     <div class="controls">
         <label class="checkbox" for="$ID">
             <input $AttributesHTML>
@@ -11,7 +11,6 @@
         <% if InlineHelpText %>
         <span class="help-inline">$InlineHelpText</span>
         <% end_if %>    
-
     </div>
 </div>
 
