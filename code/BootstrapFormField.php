@@ -20,6 +20,17 @@ class BootstrapFormField extends DataExtension {
 		"control-group"
 	);
 
+
+	/**
+	 * Adds a HTML5 placeholder attribute to the form field
+	 * 
+	 * @param $text the placeholder text to add
+	 * @return BootstrapFormField
+	 */
+	public function addPlaceholder($text) {
+		return $this->owner->setAttribute("placeholder",$text);
+	}
+
 	
 	/**
 	 * Adds a block of help text to the form field. (HTML safe).
