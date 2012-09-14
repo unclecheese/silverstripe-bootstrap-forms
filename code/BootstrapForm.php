@@ -77,6 +77,18 @@ class BootstrapForm extends Form {
 	 */
 	public static function apply_bootstrap_to_fieldlist($fields) {
 		foreach($fields as $f) {
+
+			// If we have a Tabset, bootstrapify all Tabs
+			if($f instanceof TabSet) {
+				self::apply_bootstrap_to_fieldlist($f->Tabs());				
+			}
+
+			// If we have a Tab, bootstrapify all its Fields
+			if($f instanceof Tab) {
+				self::apply_bootstrap_to_fieldlist($f->Fields());
+			}
+			
+
 			$template = "Bootstrap{$f->class}_holder";			
 			if(SSViewer::hasTemplate($template)) {					
 				$f->setFieldHolderTemplate($template);				
