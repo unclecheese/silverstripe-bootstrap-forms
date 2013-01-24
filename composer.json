@@ -1,6 +1,6 @@
 {
     "name": "silverstripe/bootstrap-forms",
-    "description": "Allows you to create forms in SilverStripe that are compatible with Twitter Bootstrap."
+    "description": "Allows you to create forms in SilverStripe that are compatible with Twitter Bootstrap.",
     "type": "silverstripe-module",
     "keywords": ["silverstripe", "bootstrap", "forms", "twitter"],
 	"license": "BSD-3-Clause",
