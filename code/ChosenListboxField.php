@@ -49,4 +49,3 @@ class ChosenListboxField extends ListboxField {
 	}
     
 }
-?>
