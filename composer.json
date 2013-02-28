@@ -1,5 +1,5 @@
 {
-    "name": "silverstripe/bootstrap-forms",
+    "name": "unclecheese/bootstrap-forms",
     "description": "Allows you to create forms in SilverStripe that are compatible with Twitter Bootstrap.",
     "type": "silverstripe-module",
     "keywords": ["silverstripe", "bootstrap", "forms", "twitter"],
@@ -17,6 +17,7 @@
     },
     "extra": {
 	"installer-name": "bootstrap_forms"
-    }
+    },
+    "replace": {"silverstripe/bootstrap-forms": "*"}
     
 }
