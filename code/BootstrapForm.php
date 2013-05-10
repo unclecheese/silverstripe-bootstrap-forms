@@ -12,21 +12,6 @@
  */
 class BootstrapForm extends Form {
 	
-	
-	/**
-	 * @var bool If true, the Bootstrap CSS will not be included in order
-	 *			to avoid collisions
-	 */
-	protected static $bootstrap_included = false;
-
-
-
-	/**
-	 * @var bool If true, jQuery will not be included in order
-	 *			to avoid collisions
-	 */
-	protected static $jquery_included = false;
-
 
 
 
@@ -49,10 +34,11 @@ class BootstrapForm extends Form {
 	/**
 	 * Sets form to disable/enable inclusion of Bootstrap CSS
 	 *
+	 * @deprecated In 3.1
 	 * @param bool $bool
 	 */
 	public static function set_bootstrap_included($bool = true) {
-		self::$bootstrap_included = $bool;
+		Config::inst()->set("BootstrapForm","bootstrap_included",$bool);
 	}
 
 
@@ -61,10 +47,11 @@ class BootstrapForm extends Form {
 	/**
 	 * Sets form to disable/enable inclusion of jQuery
 	 *
+	 * @deprecated In 3.1
 	 * @param bool $bool
 	 */
 	public static function set_jquery_included($bool = true) {
-		self::$jquery_included = $bool;
+		Config::inst()->set("BootstrapForm","jquery_included",$bool);
 	}
 
 
@@ -76,40 +63,7 @@ class BootstrapForm extends Form {
 	 * @param FieldList $fields
 	 */
 	public static function apply_bootstrap_to_fieldlist($fields) {
-		foreach($fields as $f) {
-
-			// If we have a Tabset, bootstrapify all Tabs
-			if($f instanceof TabSet) {
-				self::apply_bootstrap_to_fieldlist($f->Tabs());				
-			}
-
-			// If we have a Tab, bootstrapify all its Fields
-			if($f instanceof Tab) {
-				self::apply_bootstrap_to_fieldlist($f->Fields());
-			}
-			
-
-			$template = "Bootstrap{$f->class}_holder";			
-			if(SSViewer::hasTemplate($template)) {					
-				$f->setFieldHolderTemplate($template);				
-			}
-			else {				
-				$f->setFieldHolderTemplate("BootstrapFieldHolder");
-			}
-
-			foreach(array_reverse(ClassInfo::ancestry($f)) as $className) {						
-				$bootstrapCandidate = "Bootstrap{$className}";
-				$nativeCandidate = $className;
-				if(SSViewer::hasTemplate($bootstrapCandidate)) {
-					$f->setTemplate($bootstrapCandidate);
-					break;
-				}
-				elseif(SSViewer::hasTemplate($nativeCandidate)) {
-					$f->setTemplate($nativeCandidate);
-					break;
-				}
-			}
-		}		
+		$fields->bootstrapify();
 	}
 
 

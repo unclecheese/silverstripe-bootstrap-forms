@@ -12,8 +12,3 @@ if($dir != "bootstrap_forms") {
 if(!class_exists("GridField")) {
 	user_error("The bootstrap_forms module requires SilverStripe 3.0 or greater.", E_USER_ERROR);
 }
-Object::add_extension("FormField", "BootstrapFormField");
-Object::add_extension("TextField", "BootstrapTextField");
-Object::add_extension("OptionsetField", "BootstrapOptionsetField");
-Object::add_extension("FormAction","BootstrapFormAction");
-Object::add_extension("TextareaField", "BootstrapTextField");
