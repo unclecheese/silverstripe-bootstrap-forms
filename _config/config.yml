@@ -21,9 +21,6 @@ TextareaField:
 FieldList:
   extensions:
     - BootstrapFieldList
-Injector:
-  MemberLoginForm:
-    class: BootstrapMemberLoginForm
 ---
 only:
   moduleexists: userforms
