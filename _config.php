@@ -12,3 +12,6 @@ if($dir != "bootstrap_forms") {
 if(!class_exists("GridField")) {
 	user_error("The bootstrap_forms module requires SilverStripe 3.0 or greater.", E_USER_ERROR);
 }
+
+
+Object::useCustomClass("MemberLoginForm","BootstrapMemberLoginForm");
