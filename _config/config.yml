@@ -28,4 +28,3 @@ only:
 UserDefinedForm_Controller:
   extensions:
     - BootstrapUserForm
----
