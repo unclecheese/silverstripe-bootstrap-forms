@@ -11,9 +11,9 @@ $(function() {
 		      theme_advanced_buttons2: "",
 		      theme_advanced_buttons3: "",
 		      theme_advanced_blockformats: $t.attr('data-blockformats'),
-		      content_css: ($('base')).attr('href') + $t.attr('data-css')
+		      content_css: ($t.attr('data-css') ? ($('base')).attr('href') + $t.attr('data-css') : null)
 		    });
-		})
+		});
 	}
 
 	
