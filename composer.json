@@ -15,9 +15,6 @@
         "silverstripe/framework": "3.*",
 	    "silverstripe/cms": "3.*"
     },
-    "extra": {
-	"installer-name": "bootstrap_forms"
-    },
     "replace": {"silverstripe/bootstrap-forms": "*"}
     
 }

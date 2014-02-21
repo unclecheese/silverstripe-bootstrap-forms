@@ -67,8 +67,8 @@ class SimpleHtmlEditorField extends TextareaField {
 	 * @return SimpleHtmlEditorField
 	 */
 	public function FieldHolder($attributes = array ()) {
-		Requirements::javascript("bootstrap_forms/javascript/tinymce/jscripts/tiny_mce/jquery.tinymce.js");
-    	Requirements::javascript("bootstrap_forms/javascript/tinymce/jscripts/tiny_mce/tiny_mce.js");		
+		Requirements::javascript(BOOTSTRAP_FORMS_DIR."/javascript/tinymce/jscripts/tiny_mce/jquery.tinymce.js");
+    	Requirements::javascript(BOOTSTRAP_FORMS_DIR."/javascript/tinymce/jscripts/tiny_mce/tiny_mce.js");		
     	if(!$this->getAttribute('data-buttons')) {
     		$this->setButtons(self::$default_buttons);
     	}
