@@ -39,7 +39,17 @@ $(function() {
 	}
 
 
-	//if($(''))
+	if($('.field.bootstrapbuttongroup').length) {
+
+		$('.field.bootstrapbuttongroup .btn-group button').click(function(e) {
+			e.preventDefault();
+			var $holder = $(this).closest('.field.bootstrapbuttongroup');
+			$holder.find('.active').removeClass('active');
+			$(this).addClass('active');
+			$holder.find(':hidden').val($(this).data('value')).trigger('change');
+
+		}).filter('.active').click();	
+	}
 
 
   });

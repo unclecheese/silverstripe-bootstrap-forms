@@ -15,6 +15,14 @@ class BootstrapButtonGroupField extends FormField
 	}
 
 
+	public function setOptions($opts)
+	{
+		$this->optionsList = $opts;
+
+		return $this;
+	}
+
+
 
 	public function getOptions()
 	{
