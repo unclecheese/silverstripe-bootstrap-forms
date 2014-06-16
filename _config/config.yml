@@ -1,0 +1,30 @@
+name: BootstrapForm
+---
+BootstrapForm:
+  bootstrap_included: false
+  jquery_included: false
+FormField:
+  extensions:
+    - BootstrapFormField
+TextField:
+  extensions:
+    - BootstrapTextField
+OptionsetField:
+  extensions:
+    - BootstrapOptionsetField
+FormAction:
+  extensions:
+    - BootstrapFormAction
+TextareaField:
+  extensions:
+    - BootstrapTextField
+FieldList:
+  extensions:
+    - BootstrapFieldList
+---
+only:
+  moduleexists: userforms
+---
+UserDefinedForm_Controller:
+  extensions:
+    - BootstrapUserForm
