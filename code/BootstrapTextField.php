@@ -18,6 +18,7 @@ class BootstrapTextField extends BootstrapFormField {
 	 */
 	public function prependText($text) {
 		$this->owner->PrependedText = $text;
+		$this->owner->addExtraClass('form-control');
 		return $this->owner;
 	}
 
@@ -31,6 +32,7 @@ class BootstrapTextField extends BootstrapFormField {
 	 */
 	public function appendText($text) {
 		$this->owner->AppendedText = $text;
+		$this->owner->addExtraClass('form-control');
 		return $this->owner;
 	}
 

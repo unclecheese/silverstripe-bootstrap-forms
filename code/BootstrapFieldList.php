@@ -16,7 +16,6 @@ class BootstrapFieldList extends Extension {
 			if($f instanceof Tab) {
 				$f->Fields()->bootstrapify();
 			}
-			
 
 			$template = "Bootstrap{$f->class}_holder";			
 			if(SSViewer::hasTemplate($template)) {					
@@ -37,6 +36,8 @@ class BootstrapFieldList extends Extension {
 					$f->setTemplate($nativeCandidate);
 					break;
 				}
+
+
 			}
 		}
 

@@ -1,7 +1,8 @@
 (function($) {
 $(function() {
-
+alert('hi');
 	if($('textarea.wysiwyg').length) {
+		alert('hi');
 		$('textarea.wysiwyg').each(function() {
 			var $t = $(this);
 		    $t.tinymce({

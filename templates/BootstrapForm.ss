@@ -1,8 +1,8 @@
-<% if IncludeFormTag %>
-<form $AttributesHTML>
+<% if $IncludeFormTag %>
+<form $AttributesHTML role="form">
 <% end_if %>
-	<% if Message %>
-		<% if MessageType == "good" %>
+	<% if $Message %>
+		<% if $MessageType == "good" %>
 			<div id="{$FormName}_error" class="alert alert-success">$Message</div>
 		<% else_if MessageType == "info" %>
 			<div id="{$FormName}_error" class="alert alert-info">$Message</div>	
@@ -12,20 +12,20 @@
 	<% end_if %>
 	
 	<fieldset>
-		<% if Legend %><legend>$Legend</legend><% end_if %> 
-		<% loop Fields %>
+		<% if $Legend %><legend>$Legend</legend><% end_if %> 
+		<% loop $Fields %>
 			$FieldHolder
 		<% end_loop %>
 		<div class="clear"><!-- --></div>
 	</fieldset>
 
-	<% if Actions %>
+	<% if $Actions %>
 	<div class="form-actions">
-		<% loop Actions %>
+		<% loop $Actions %>
 			$Field
 		<% end_loop %>
 	</div>
 	<% end_if %>
-<% if IncludeFormTag %>
+<% if $IncludeFormTag %>
 </form>
 <% end_if %>

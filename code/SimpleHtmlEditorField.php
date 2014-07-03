@@ -75,6 +75,7 @@ class SimpleHtmlEditorField extends TextareaField {
     	if(!$this->getAttribute('data-blockformats')) {
     		$this->setBlockFormats(self::$default_blockformats);
     	}
+
 		$this->addExtraClass('wysiwyg');
 		return parent::FieldHolder($attributes);
 	}
