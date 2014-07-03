@@ -95,7 +95,7 @@ class BootstrapFormField extends DataExtension {
 	 * 
 	 * @return BootstrapFormField
 	 */
-	public function addHolderClass($class) {
+	public function addHolderClass($class) {		
 		$this->holderClasses[] = $class;
 		return $this->owner;
 	}
@@ -108,6 +108,7 @@ class BootstrapFormField extends DataExtension {
 	 */
 	public function HolderClasses() {
 		$this->loadErrorMessage();
+
 		return implode(" ",$this->holderClasses);
 	}
 
@@ -116,8 +117,10 @@ class BootstrapFormField extends DataExtension {
 	 *
 	 * @return  BootstrapFormField
 	 */
-	public function addBootstrapClasses() {
-		$this->owner->addExtraClass('form-control');
+	public function onBeforeRender() {
+		if(!in_array($this->owner->class, Config::inst()->get('BootstrapForm','inline_fields'))) {
+			$this->owner->addExtraClass('form-control');
+		}
 		return $this->owner;
 	}
 

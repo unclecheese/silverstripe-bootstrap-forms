@@ -3,6 +3,9 @@ name: BootstrapForm
 BootstrapForm:
   bootstrap_included: false
   jquery_included: false
+  inline_fields:
+    - CheckboxField
+    - FormAction
 FormField:
   extensions:
     - BootstrapFormField
