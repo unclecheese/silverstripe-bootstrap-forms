@@ -38,7 +38,7 @@ class BootstrapForm extends Form {
 	 * @param bool $bool
 	 */
 	public static function set_bootstrap_included($bool = true) {
-		Config::inst()->set("BootstrapForm","bootstrap_included",$bool);
+		Config::inst()->update("BootstrapForm", "bootstrap_included", $bool);
 	}
 
 
@@ -51,7 +51,7 @@ class BootstrapForm extends Form {
 	 * @param bool $bool
 	 */
 	public static function set_jquery_included($bool = true) {
-		Config::inst()->set("BootstrapForm","jquery_included",$bool);
+		Config::inst()->update("BootstrapForm", "jquery_included", $bool);
 	}
 
 
