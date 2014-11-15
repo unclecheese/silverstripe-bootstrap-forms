@@ -11,7 +11,7 @@
  * @package boostrap_forms
  */
 class BootstrapForm extends Form {
-	
+
 
 
 
@@ -52,6 +52,17 @@ class BootstrapForm extends Form {
 	 */
 	public static function set_jquery_included($bool = true) {
 		Config::inst()->update("BootstrapForm", "jquery_included", $bool);
+	}
+
+
+	/**
+	 * Sets form to disable/enable inclusion of bootstrap forms js
+	 *
+	 * @deprecated In 3.1
+	 * @param bool $bool
+	 */
+	public static function set_bootstrap_form_included($bool = true) {
+		Config::inst()->update("BootstrapForm", "bootstrap_form_included", $bool);
 	}
 
 
@@ -140,7 +151,9 @@ class BootstrapForm extends Form {
 		if(!$this->stat('jquery_included')) {
 			Requirements::javascript(THIRDPARTY_DIR."/jquery/jquery.js");
 		}
-		Requirements::javascript(BOOTSTRAP_FORMS_DIR."/javascript/bootstrap_forms.js");
+		if(!$this->stat('bootstrap_form_included')) {
+			Requirements::javascript(BOOTSTRAP_FORMS_DIR."/javascript/bootstrap_forms.js");
+		}
 		$this->addExtraClass("form-{$this->formLayout}");
 		$this->applyBootstrap();
 		return parent::forTemplate();
