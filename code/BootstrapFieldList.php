@@ -3,11 +3,13 @@
 
 class BootstrapFieldList extends Extension {
 
+
 	protected $ignores = array ();
 
 
 	public function bootstrapify() {
 		foreach($this->owner as $f) {
+
 
 			if(isset($this->ignores[$f->getName()])) continue;
 
@@ -48,6 +50,7 @@ class BootstrapFieldList extends Extension {
 		return $this->owner;		
 
 	}
+
 
 
 	public function bootstrapIgnore($field) {

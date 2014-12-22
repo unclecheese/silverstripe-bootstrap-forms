@@ -155,7 +155,9 @@ class BootstrapForm extends Form {
 			Requirements::javascript(BOOTSTRAP_FORMS_DIR."/javascript/bootstrap_forms.js");
 		}
 		$this->addExtraClass("form-{$this->formLayout}");
+
 		$this->applyBootstrap();		
+
 		return parent::forTemplate();
 	}
 
