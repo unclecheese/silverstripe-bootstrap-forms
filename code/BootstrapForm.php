@@ -67,46 +67,17 @@ class BootstrapForm extends Form {
 
 
 	/**
-	 * Changes the templates of all the {@link FormField}
-	 * objects in a given {@link FieldList} object to those
-	 * that work the Bootstrap framework
-	 *
-	 * @param FieldList $fields
-	 */
-	public static function apply_bootstrap_to_fieldlist($fields) {
-		$fields->bootstrapify();
-	}
-
-
-
-
-	/**
 	 * Applies the Bootstrap transformation to the fields and actiosn
 	 * of the form
 	 *
 	 * @return BootstrapForm
 	 */
 	public function applyBootstrap() {
-		$this->applyBootstrapToFieldList($this->Fields());
-		$this->applyBootstrapToFieldList($this->Actions());
+		$this->Fields()->bootstrapify();
+		$this->Actions()->bootstrapify();
+
 		return $this;
 	}
-
-
-
-	/**
-	 * Changes the templates of all the {@link FormField}
-	 * objects in a given {@link FieldList} object to those
-	 * that work the Bootstrap framework
-	 *
-	 * @param FieldList $fields
-	 * @return BootstrapForm
-	 */
-	protected function applyBootstrapToFieldList($fields) {
-		self::apply_bootstrap_to_fieldlist($fields);
-		return $this;
-	}
-
 
 
 	/**

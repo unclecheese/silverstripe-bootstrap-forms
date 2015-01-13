@@ -167,21 +167,6 @@ class BootstrapFormField extends DataExtension {
 	}
 
 	/**
-	 * Adds requisite classes to the form field
-	 *
-	 * @return  BootstrapFormField
-	 */
-	public function onBeforeRender() {
-		if(
-			!in_array($this->owner->class, Config::inst()->get('BootstrapForm','inline_fields')) &&
-			($this->owner->getForm() && $this->owner->getForm() instanceof BootstrapForm)
-		) {
-			$this->owner->addExtraClass('form-control');
-		}
-		return $this->owner;
-	}
-
-	/**
 	 * checks for error messages in owner form field
 	 * adds error class to holder and loads error message as helptext
 	 *

@@ -10,6 +10,8 @@ class BootstrapMemberLoginForm extends MemberLoginForm {
 		$this->Fields()->bootstrapify();
 		$this->Actions()->bootstrapify();
 		$this->setTemplate("BootstrapForm");
+
+		$this->invokeWithExtensions('updateBoostrapMemberLoginForm', $this);
 	}
 
 }

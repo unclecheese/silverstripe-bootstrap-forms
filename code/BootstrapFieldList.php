@@ -8,6 +8,8 @@ class BootstrapFieldList extends Extension {
 
 
 	public function bootstrapify() {
+		$inline_fields = Config::inst()->get('BootstrapForm','inline_fields');
+
 		foreach($this->owner as $f) {
 
 
@@ -21,6 +23,10 @@ class BootstrapFieldList extends Extension {
 			// If we have a Tab, bootstrapify all its Fields
 			if($f instanceof Tab) {
 				$f->Fields()->bootstrapify();
+			}
+
+			if(!in_array($f->class, $inline_fields )) {
+				$f->addExtraClass('form-control');
 			}
 
 			$template = "Bootstrap{$f->class}_holder";			
