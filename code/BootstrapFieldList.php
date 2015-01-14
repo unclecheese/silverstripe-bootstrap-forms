@@ -15,14 +15,9 @@ class BootstrapFieldList extends Extension {
 
 			if(isset($this->ignores[$f->getName()])) continue;
 
-			// If we have a Tabset, bootstrapify all Tabs
-			if($f instanceof TabSet) {
-				$f->Tabs()->bootstrapify();
-			}
-
-			// If we have a Tab, bootstrapify all its Fields
-			if($f instanceof Tab) {
-				$f->Fields()->bootstrapify();
+			if($f instanceof CompositeField) {
+				$f->getChildren()->bootstrapify();
+				continue;
 			}
 
 			if(!in_array($f->class, $inline_fields )) {
