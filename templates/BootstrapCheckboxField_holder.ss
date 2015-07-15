@@ -1,7 +1,6 @@
 <div id="$Name" class="checkbox $HolderClasses" $HolderAttributes>
     <label class="$labelClasses">
-        $Title
-        <input $AttributesHTML class="$inputClasses">
+        <input $AttributesHTML class="$inputClasses">$Title
     </label>
     <% if $HelpText %>
     <p class="help-block">$HelpText</p>
