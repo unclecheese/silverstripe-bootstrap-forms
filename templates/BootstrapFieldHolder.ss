@@ -1,5 +1,5 @@
 <div id="$Name" class="$HolderClasses" $HolderAttributes>
-    <label for="$ID">$Title</label>
+    <label for="$ID" class="$LabelClasses">$Title</label>
     $Field        
     <% if $HelpText %>
     <p class="help-block">$HelpText</p>
