@@ -178,5 +178,22 @@ class BootstrapFormField extends DataExtension {
 			$this->addHelpText($this->owner->message);
 		}
 	}
+	
+	/**
+	 * Adds the form-control class to *just* the formfield, not the holder.
+	 * This seems a bit of a hack, but addExtraClass() affects both the holder
+	 * and the field, so that's not a realistic option. We can't have form-control
+	 * on the wrapping div.
+	 * 
+	 * @param  FormField $field	 
+	 */
+	public function onBeforeRender (FormField $field) {		
+		$inline_fields = Config::inst()->get('BootstrapForm','inline_fields');
+
+		if(!in_array($field->class, $inline_fields )) {
+			$field->addExtraClass('form-control');
+		}
+	}
+
 
 }
