@@ -17,6 +17,8 @@ class BootstrapFieldList extends Extension {
 	public function bootstrapify() {		
 		foreach($this->owner as $f) {
 
+			$sng = Injector::inst()->get($f->class, true, ['dummy', '']);
+
 			if(isset($this->ignores[$f->getName()])) continue;
 
 			// If we have a Tabset, bootstrapify all Tabs
@@ -29,27 +31,34 @@ class BootstrapFieldList extends Extension {
 				$f->Fields()->bootstrapify();
 			}
 
-			$template = "Bootstrap{$f->class}_holder";			
-			if(SSViewer::hasTemplate($template)) {					
-				$f->setFieldHolderTemplate($template);				
-			}
-			else {				
-				$f->setFieldHolderTemplate("BootstrapFieldHolder");
-			}
-
-			foreach(array_reverse(ClassInfo::ancestry($f)) as $className) {						
-				$bootstrapCandidate = "Bootstrap{$className}";
-				$nativeCandidate = $className;
-				if(SSViewer::hasTemplate($bootstrapCandidate)) {
-					$f->setTemplate($bootstrapCandidate);
-					break;
+			// If the user has customised the holder template already, don't apply the default one.
+			if($sng->getFieldHolderTemplate() == $f->getFieldHolderTemplate()) {
+				$template = "Bootstrap{$f->class}_holder";			
+				if(SSViewer::hasTemplate($template)) {					
+					$f->setFieldHolderTemplate($template);				
 				}
-				elseif(SSViewer::hasTemplate($nativeCandidate)) {
-					$f->setTemplate($nativeCandidate);
-					break;
+				else {				
+					$f->setFieldHolderTemplate("BootstrapFieldHolder");
 				}
 
+			}
 
+			// If the user has customised the field template already, don't apply the default one.
+			if($sng->getTemplate() == $f->getTemplate()) {
+				foreach(array_reverse(ClassInfo::ancestry($f)) as $className) {						
+					$bootstrapCandidate = "Bootstrap{$className}";
+					$nativeCandidate = $className;
+					if(SSViewer::hasTemplate($bootstrapCandidate)) {
+						$f->setTemplate($bootstrapCandidate);
+						break;
+					}
+					elseif(SSViewer::hasTemplate($nativeCandidate)) {
+						$f->setTemplate($nativeCandidate);
+						break;
+					}
+
+
+				}
 			}
 		}
 
