@@ -21,6 +21,12 @@ class BootstrapFieldList extends Extension {
 
 			if(isset($this->ignores[$f->getName()])) continue;
 
+            // if we have a CompositeField, bootstrapify its children
+            if($f instanceof CompositeField) {
+                $f->getChildren()->bootstrapify();
+                continue;
+            }
+
 			// If we have a Tabset, bootstrapify all Tabs
 			if($f instanceof TabSet) {
 				$f->Tabs()->bootstrapify();
