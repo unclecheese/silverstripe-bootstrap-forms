@@ -4,7 +4,7 @@ class BootstrapDropdownField extends DropdownField {
 	protected $optionsList;
 
 	public function __construct($name, $title = NULL, $options = array(), $value = NULL) {
-		parent::__construct($name, $title, $value);
+		parent::__construct($name, $title,$options, $value);
 		$this->optionsList = $options;
 
 		return $this;
