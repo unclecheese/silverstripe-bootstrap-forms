@@ -50,21 +50,8 @@ $(function() {
 		}).filter('.active').click();	
 	}
 
-// dropdowns need to be configured when javascript is enabled.
-	$('.dropdown-select').hide();
-	$('.dropdown-toggle').show();
 
-	// sync selected list item with the select control
-	$('.dropdown-menu a').on('click', function(ev) {
-		var rel = $(this).attr('rel'),
-			value = $(this).data('value');
-
-		$(rel + '_select').val(value);
-		$(rel + '_select').change();
-		$(rel + '_label').text($(this).text());
-	});
-
-  });
+});
 
 
 })(jQuery);
