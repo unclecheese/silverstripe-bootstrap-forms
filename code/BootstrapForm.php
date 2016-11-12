@@ -29,6 +29,28 @@ class BootstrapForm extends Form {
 	protected $formLayout = "vertical";
 
 
+    /**
+     * The label grid class for the bootstrap 3 horizontal form
+     *
+     * @var String
+     */
+    protected $gridLabelClass = "col-sm-3";
+
+
+    /**
+     * The input grid class for the bootstrap 3 horizontal form
+     *
+     * @var String
+     */
+    protected $gridInputClass = "col-sm-9";
+
+    /**
+     * The Action grid class for the bootstrap 3 horizontal form
+     *
+     * @var String
+     */
+    protected $gridActionClass = "col-sm-offset-3 col-sm-9";
+
 
 
 	/**
@@ -97,6 +119,50 @@ class BootstrapForm extends Form {
 	}
 
 
+    /**
+     * Sets the desired label Grid Class of the form. Options include:
+     *		- "col-sm-3" (default)
+     *		- "col-sm-4"
+     * 		etc..
+     *
+     * @param String
+     * @return BootstrapForm
+     */
+    public function setGridLabelClass($class) {
+        $this->gridLabelClass = strtolower($class);
+        return $this;
+    }
+
+
+    /**
+     * Sets the desired Input Grid Class of the form. Options include:
+     *		- "col-sm-9" (default)
+     *		- "col-sm-8"
+     * 		etc..
+     *
+     * @param String
+     * @return BootstrapForm
+     */
+    public function setGridInputClass($class) {
+        $this->gridInputClass = strtolower($class);
+        return $this;
+    }
+
+
+    /**
+     * Sets the desired Action Grid Class of the form. Options include:
+     *		- "col-sm-offset-3 col-sm-9" (default)
+     *		- "col-sm-offset-2 col-sm-10"
+     * 		etc..
+     *
+     * @param String
+     * @return BootstrapForm
+     */
+    public function setGridActionClass($class) {
+        $this->gridActionClass = strtolower($class);
+        return $this;
+    }
+
 
 	/**
 	 * Adds a "well," or sunken background and border, to the form
@@ -116,18 +182,18 @@ class BootstrapForm extends Form {
 	 * @return string
 	 */
 	public function forTemplate() {
-		if(!$this->stat('bootstrap_included')) {
-			Requirements::css(BOOTSTRAP_FORMS_DIR.'/css/bootstrap.css');
+        if($this->stat('bootstrap_included')!=false) {
+            Requirements::css(BOOTSTRAP_FORMS_DIR.'/css/bootstrap.css');
 		}
-		if(!$this->stat('jquery_included')) {
+		if($this->stat('jquery_included')!=false) {
 			Requirements::javascript(THIRDPARTY_DIR."/jquery/jquery.js");
 		}
-		if(!$this->stat('bootstrap_form_included')) {
+		if(!$this->stat('bootstrap_form_included')!=false) {
 			Requirements::javascript(BOOTSTRAP_FORMS_DIR."/javascript/bootstrap_forms.js");
 		}
 		$this->addExtraClass("form-{$this->formLayout}");
 
-		$this->applyBootstrap();		
+		$this->applyBootstrap();
 
 		return parent::forTemplate();
 	}
