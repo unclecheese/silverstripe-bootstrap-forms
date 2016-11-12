@@ -27,6 +27,23 @@ class BootstrapFormField extends DataExtension {
 	);
 
 
+    /**
+     * The label grid class for the bootstrap 3 horizontal form
+     * overrides form setting
+     *
+     * @var String
+     */
+    protected $gridLabelClass = '';
+
+    /**
+     * The input grid class for the bootstrap 3 horizontal form
+     * overrides form setting
+     *
+     * @var String
+     */
+    protected $gridInputClass = '';
+
+
 	/**
 	 * Adds a HTML5 placeholder attribute to the form field
 	 *
@@ -166,6 +183,59 @@ class BootstrapFormField extends DataExtension {
 		return implode(" ",$this->holderClasses);
 	}
 
+
+    /**
+     * returns the bootstrap Layout to be used in templates
+     *
+     * @return string
+     */
+    public function BootstrapLayout() {
+        return $this->owner->form->formLayout;
+    }
+
+    /**
+     * Allows setting custom Grid label class to override from grid label class
+     *
+     * @param string $class
+     *
+     * @return BootstrapFormField
+     */
+    public function setGridLabelClass($class) {
+        $this->gridLabelClass = $class;
+        return $this->owner;
+    }
+
+    /**
+     * Allows setting custom Grid input class to override from grid label class
+     *
+     * @param string $class
+     *
+     * @return BootstrapFormField
+     */
+    public function setGridInputClass($class) {
+        $this->gridInputClass = $class;
+        return $this->owner;
+    }
+
+    /**
+     * returns Grid label class to be used in templates
+     *
+     * @return integer
+     */
+    public function GridLabelClass() {
+        return (trim($this->gridLabelClass)!='')?$this->gridLabelClass:$this->owner->form->gridLabelClass;
+    }
+
+    /**
+     * returns Grid input class to be used in templates
+     *
+     * @return integer
+     */
+    public function GridInputClass() {
+        return (trim($this->gridInputClass)!='')?$this->gridInputClass:$this->owner->form->gridInputClass;
+    }
+
+
 	/**
 	 * checks for error messages in owner form field
 	 * adds error class to holder and loads error message as helptext
@@ -178,21 +248,21 @@ class BootstrapFormField extends DataExtension {
 			$this->addHelpText($this->owner->message);
 		}
 	}
-	
+
 	/**
 	 * Adds the form-control class to *just* the formfield, not the holder.
 	 * This seems a bit of a hack, but addExtraClass() affects both the holder
 	 * and the field, so that's not a realistic option. We can't have form-control
 	 * on the wrapping div.
-	 * 
-	 * @param  FormField $field	 
+	 *
+	 * @param  FormField $field
 	 */
-	public function onBeforeRender (FormField $field) {		
-		$inline_fields = Config::inst()->get('BootstrapForm','inline_fields');
+	public function onBeforeRender (FormField $field) {
+        $inline_fields = Config::inst()->get('BootstrapForm','inline_fields');
 
-		if(!in_array($field->class, $inline_fields )) {
-			$field->addExtraClass('form-control');
-		}
+        if(!in_array($field->class, $inline_fields )) {
+            $field->addExtraClass('form-control');
+        }
 	}
 
 
