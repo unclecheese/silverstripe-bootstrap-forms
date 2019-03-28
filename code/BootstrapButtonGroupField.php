@@ -1,5 +1,5 @@
 <?php
-
+namespace UncleCheese\BootstrapForms;
 
 class BootstrapButtonGroupField extends FormField
 {
@@ -34,8 +34,8 @@ class BootstrapButtonGroupField extends FormField
 				'Selected' => $this->Value() == $val
 			)));
 		}
-		
-		return $options;		
+
+		return $options;
 	}
 
 

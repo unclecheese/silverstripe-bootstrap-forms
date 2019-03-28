@@ -1,5 +1,5 @@
 <?php
-
+namespace UncleCheese\BootstrapForms;
 /**
  * Defines a FormField that uses the bootstrap-select JS plugin for making
  * dropdown fields nice.

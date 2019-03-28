@@ -1,5 +1,5 @@
 <?php
-
+namespace UncleCheese\BootstrapForms;
 /**
  * Builds a form that renders {@link FormField} objects
  * using templates that are compatible with Twitter Bootstrap.

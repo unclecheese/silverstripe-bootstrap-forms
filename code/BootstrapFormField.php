@@ -1,4 +1,5 @@
 <?php
+namespace UncleCheese\BootstrapForms;
 
 /**
  * The base class for creating a {@link FormField} object
