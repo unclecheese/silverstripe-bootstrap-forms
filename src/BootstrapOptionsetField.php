@@ -2,6 +2,8 @@
 
 namespace UncleCheese\BootstrapForms;
 
+use Exception;
+
 /**
  * Creates a {@link OptionsetField} or a subclass thereof that is compatible with the
  * Twitter Bootstrap CSS framework.
@@ -27,13 +29,11 @@ class BootstrapOptionsetField extends BootstrapFormField
      */
     protected $columnCounts = [];
 
-
     /**
      * Number of columns in the options layout
      * @var int
      */
     protected $numberOfColumns;
-
 
     /**
      * Enable or disable "inline" presentation, in which
@@ -47,7 +47,6 @@ class BootstrapOptionsetField extends BootstrapFormField
         $this->owner->Inline = $bool;
         return $this->owner;
     }
-
 
     /**
      * Sets the column layout for the options
@@ -89,7 +88,6 @@ class BootstrapOptionsetField extends BootstrapFormField
         return !empty($this->columnCounts);
     }
 
-
     /**
      * Number of columns in the layout
      *
@@ -99,7 +97,6 @@ class BootstrapOptionsetField extends BootstrapFormField
     {
         return $this->numberOfColumns;
     }
-
 
     /**
      * A list of classes for the column divs
@@ -116,7 +113,6 @@ class BootstrapOptionsetField extends BootstrapFormField
         return implode(" ", $classes);
     }
 
-
     /**
      * Number of options per column
      *
@@ -126,6 +122,4 @@ class BootstrapOptionsetField extends BootstrapFormField
     {
         return ceil(count($this->owner->getSource()) / $this->numberOfColumns);
     }
-
-
 }

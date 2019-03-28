@@ -2,6 +2,10 @@
 
 namespace UncleCheese\BootstrapForms;
 
+use SilverStripe\Forms\DropdownField;
+use SilverStripe\Core\Config\Config;
+use SilverStripe\View\Requirements;
+
 /**
  * Defines a FormField that uses the Chosen JS plugin for making
  * dropdown fields nice.

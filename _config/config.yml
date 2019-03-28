@@ -1,38 +1,39 @@
+---
 name: BootstrapForm
 ---
-BootstrapForm:
+UncleCheese\BootstrapForms\BootstrapForm:
   bootstrap_included: false
   jquery_included: false
   bootstrap_form_included: false
   bootstrap_select_included: false
   inline_fields:
-    - CheckboxField
-    - FormAction
-FormField:
+    - SilverStripe\Forms\CheckboxField
+    - SilverStripe\Forms\FormAction
+SilverStripe\Forms\FormField:
   extensions:
-    - BootstrapFormField
-TextField:
+    - UncleCheese\BootstrapForms\BootstrapFormField
+SilverStripe\Forms\TextField:
   extensions:
-    - BootstrapTextField
-OptionsetField:
+    - UncleCheese\BootstrapForms\BootstrapTextField
+SilverStripe\Forms\OptionsetField:
   extensions:
-    - BootstrapOptionsetField
-FormAction:
+    - UncleCheese\BootstrapForms\BootstrapOptionsetField
+SilverStripe\Forms\FormAction:
   extensions:
-    - BootstrapFormAction
-TextareaField:
+    - UncleCheese\BootstrapForms\BootstrapFormAction
+SilverStripe\Forms\TextareaField:
   extensions:
-    - BootstrapTextField
-FieldList:
+    - UncleCheese\BootstrapForms\BootstrapTextField
+SilverStripe\Forms\FieldList:
   extensions:
-    - BootstrapFieldList
-Injector:
-  MemberLoginForm:
-    class: BootstrapMemberLoginForm
+    - UncleCheese\BootstrapForms\BootstrapFieldList
+SilverStripe\Core\Injector\Injector:
+  SilverStripe\Security\MemberAuthenticator\MemberLoginForm:
+    class: UncleCheese\BootstrapForms\BootstrapMemberLoginForm
 ---
 only:
   moduleexists: userforms
 ---
-UserDefinedForm_Controller:
+SilverStripe\UserForms\Control\UserDefinedFormController:
   extensions:
-    - BootstrapUserForm
+    - UncleCheese\BootstrapForms\BootstrapUserForm

@@ -1,5 +1,10 @@
 <?php
 namespace UncleCheese\BootstrapForms;
+
+use SilverStripe\Forms\Form;
+use SilverStripe\Core\Config\Config;
+use SilverStripe\View\Requirements;
+
 /**
  * Builds a form that renders {@link FormField} objects
  * using templates that are compatible with Twitter Bootstrap.

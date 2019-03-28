@@ -2,6 +2,7 @@
 
 namespace UncleCheese\BootstrapForms;
 
+use SilverStripe\Core\Extension;
 
 class BootstrapUserForm extends Extension
 {

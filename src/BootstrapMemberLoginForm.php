@@ -2,6 +2,9 @@
 
 namespace UncleCheese\BootstrapForms;
 
+use SilverStripe\Security\MemberAuthenticator\MemberLoginForm;
+use SilverStripe\Control\Controller;
+
 class BootstrapMemberLoginForm extends MemberLoginForm
 {
 

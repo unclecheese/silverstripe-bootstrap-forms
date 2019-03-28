@@ -1,5 +1,11 @@
 <?php
 namespace UncleCheese\BootstrapForms;
+
+use SilverStripe\Core\Config\Config;
+use SilverStripe\View\Requirements;
+use SilverStripe\Forms\DropdownField;
+use SilverStripe\i18n\i18n;
+
 /**
  * Defines a FormField that uses the bootstrap-select JS plugin for making
  * dropdown fields nice.
@@ -17,7 +23,7 @@ class BootstrapDropdownField extends DropdownField {
 	 */
 	public function FieldHolder($attributes = array ()) {
 		if(!Config::inst()->get('BootstrapForm', 'bootstrap_select_included')) {
-			$current_locale = (class_exists('Translatable')) ? Translatable::get_current_locale() : i18n::get_locale();
+			$current_locale = i18n::get_locale();
 			Requirements::javascript(BOOTSTRAP_FORMS_DIR."/javascript/bootstrap-select/js/bootstrap-select.min.js");
 			Requirements::javascript(BOOTSTRAP_FORMS_DIR."/javascript/bootstrap-select/js/i18n/defaults-{$current_locale}.js");
 			Requirements::css(BOOTSTRAP_FORMS_DIR."/javascript/bootstrap-select/css/bootstrap-select.min.css");

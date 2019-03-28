@@ -2,6 +2,9 @@
 
 namespace UncleCheese\BootstrapForms;
 
+use SilverStripe\Forms\ListboxField;
+use SilverStripe\View\Requirements;
+
 class ChosenListboxField extends ListboxField
 {
     /**

@@ -1,6 +1,13 @@
 <?php
 namespace UncleCheese\BootstrapForms;
 
+use SilverStripe\Core\Extension;
+use SilverStripe\Core\Injector\Injector;
+use SilverStripe\Forms\CompositeField;
+use SilverStripe\Forms\TabSet;
+use SilverStripe\Forms\Tab;
+use SilverStripe\View\SSViewer;
+use SilverStripe\Core\ClassInfo;
 
 class BootstrapFieldList extends Extension {
 
@@ -16,8 +23,7 @@ class BootstrapFieldList extends Extension {
 	 */
 	public function bootstrapify() {
 		foreach($this->owner as $f) {
-
-			$sng = Injector::inst()->get($f->class, true, ['dummy', '']);
+			$sng = Injector::inst()->get($f->__toString(), true, ['dummy', '']);
 
 			if(isset($this->ignores[$f->getName()])) continue;
 

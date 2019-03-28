@@ -2,6 +2,9 @@
 
 namespace UncleCheese\BootstrapForms;
 
+use SilverStripe\Forms\TextareaField;
+use SilverStripe\View\Requirements;
+
 /**
  * Defines a formfield that has HTML editing capability
  * using the TinyMCE plugin

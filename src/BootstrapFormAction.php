@@ -1,6 +1,7 @@
 <?php
-
 namespace UncleCheese\BootstrapForms;
+
+use SilverStripe\ORM\DataExtension;
 
 /**
  * Creates a {@link FormAction} object that is compatible
