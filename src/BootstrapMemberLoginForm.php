@@ -10,8 +10,9 @@ class BootstrapMemberLoginForm extends MemberLoginForm
 
 
     public function __construct(
-        $controller = null,
-        $name = null,
+        $controller,
+        $authenticator,
+        $name,
         $fields = null,
         $actions = null,
         $checkCurrentUser = true
@@ -22,12 +23,10 @@ class BootstrapMemberLoginForm extends MemberLoginForm
         if (!$name) {
             $name = "LoginForm";
         }
-        parent::__construct($controller, $name, $fields, $actions, $checkCurrentUser);
+        parent::__construct($controller, $authenticator, $name, $fields, $actions, $checkCurrentUser);
         $this->Fields()->bootstrapify();
         $this->Actions()->bootstrapify();
         $this->setTemplate("BootstrapForm");
-
-        $this->invokeWithExtensions('updateBoostrapMemberLoginForm', $this);
     }
 
 }

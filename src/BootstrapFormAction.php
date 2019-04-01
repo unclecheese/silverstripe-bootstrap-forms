@@ -28,7 +28,7 @@ class BootstrapFormAction extends DataExtension
      */
     public function setStyle($style)
     {
-        $this->owner->ButtonStyle = trim(strtolower($style));
+        $this->owner->addExtraClass('btn-' . trim(strtolower($style)));
         return $this->owner;
     }
 
@@ -44,7 +44,7 @@ class BootstrapFormAction extends DataExtension
      */
     public function setSize($size)
     {
-        $this->owner->ButtonSize = trim(strtolower($size));
+        $this->owner->addExtraClass(trim(strtolower('btn-' . $size)));
         return $this->owner;
     }
 

@@ -22,7 +22,7 @@ class BootstrapDropdownField extends DropdownField {
 	 * @return SSViewer
 	 */
 	public function FieldHolder($attributes = array ()) {
-		if(!Config::inst()->get('BootstrapForm', 'bootstrap_select_included')) {
+		if(!Config::inst()->get(BootstrapForm::class, 'bootstrap_select_included')) {
 			$current_locale = i18n::get_locale();
 			Requirements::javascript(BOOTSTRAP_FORMS_DIR."/javascript/bootstrap-select/js/bootstrap-select.min.js");
 			Requirements::javascript(BOOTSTRAP_FORMS_DIR."/javascript/bootstrap-select/js/i18n/defaults-{$current_locale}.js");

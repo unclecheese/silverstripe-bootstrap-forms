@@ -45,10 +45,10 @@ class ChosenDropdownField extends DropdownField
     public function FieldHolder($attributes = [])
     {
 
-        if (!Config::inst()->get('BootstrapForm', 'jquery_included')) {
-            Requirements::javascript(THIRDPARTY_DIR . "/jquery/jquery.js");
-            Requirements::javascript(FRAMEWORK_DIR . "/admin/thirdparty/chosen/chosen/chosen.jquery.js");
-            Requirements::css(FRAMEWORK_DIR . "/admin/thirdparty/chosen/chosen/chosen.css");
+        if (!Config::inst()->get(BootstrapForm::class, 'jquery_included')) {
+            Requirements::javascript('silverstripe/admin: thirdparty/jquery/jquery.js');
+            Requirements::javascript(BOOTSTRAP_FORMS_DIR . "/javascript/chosen/chosen.jquery.js");
+            Requirements::css(BOOTSTRAP_FORMS_DIR . "/javascript/chosen/chosen.css");
         } else {
             Requirements::javascript(BOOTSTRAP_FORMS_DIR . "/javascript/chosen/chosen.jquery.js");
             Requirements::css(BOOTSTRAP_FORMS_DIR . "/javascript/chosen/chosen.css");

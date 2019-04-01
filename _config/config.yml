@@ -2,10 +2,10 @@
 name: BootstrapForm
 ---
 UncleCheese\BootstrapForms\BootstrapForm:
-  bootstrap_included: false
-  jquery_included: false
-  bootstrap_form_included: false
-  bootstrap_select_included: false
+  bootstrap_included: true
+  jquery_included: true
+  bootstrap_form_included: true
+  bootstrap_select_included: true
   inline_fields:
     - SilverStripe\Forms\CheckboxField
     - SilverStripe\Forms\FormAction
@@ -27,6 +27,9 @@ SilverStripe\Forms\TextareaField:
 SilverStripe\Forms\FieldList:
   extensions:
     - UncleCheese\BootstrapForms\BootstrapFieldList
+SilverStripe\Forms\CheckboxSetField:
+  extensions:
+    - UncleCheese\BootstrapForms\BootstrapCheckboxSetField
 SilverStripe\Core\Injector\Injector:
   SilverStripe\Security\MemberAuthenticator\MemberLoginForm:
     class: UncleCheese\BootstrapForms\BootstrapMemberLoginForm

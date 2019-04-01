@@ -48,7 +48,7 @@ class BootstrapButtonGroupField extends FormField
 	public function Field($attributes = array ())
 	{
 		Requirements::javascript(BOOTSTRAP_FORMS_DIR."/javascript/bootstrap_forms.js");
-		return $this->renderWith('BootstrapButtonGroupField');
+		return $this->renderWith('UncleCheese\BootstrapForms\BootstrapButtonGroupField');
 	}
 
 
