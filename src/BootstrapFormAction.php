@@ -44,6 +44,10 @@ class BootstrapFormAction extends DataExtension
      */
     public function setSize($size)
     {
+        $exists = preg_grep("/col-sm/", $this->owner->extraClasses);
+        if (sizeof(preg_grep("/col-sm/", $this->owner->extraClasses)) === 0) {
+            $this->setSpan(12);
+        }
         $this->owner->addExtraClass(trim(strtolower('btn-' . $size)));
         return $this->owner;
     }
@@ -58,6 +62,7 @@ class BootstrapFormAction extends DataExtension
     {
         $s = trim(strtolower($span));
         $this->owner->addExtraClass("inline");
+        $this->owner->removeExtraClass("col-sm-12");
         return $this->owner->addExtraClass("col-sm-{$s}");
     }
 
