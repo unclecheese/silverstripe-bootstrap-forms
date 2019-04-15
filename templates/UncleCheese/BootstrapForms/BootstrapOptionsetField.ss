@@ -3,7 +3,7 @@
         <div class="row">
         <% loop $Options %>
                 <div class="$Up.ColumnClasses">
-                    <div class="radio <% if $Up.Inline %>inline<% end_if %>">
+                    <div class="radio">
                         <label>
                             <input id="$ID" class="radio" name="$Name" type="radio"
                                    value="$Value"<% if $isChecked %> checked="checked"<% end_if %><% if $isDisabled %>
@@ -12,14 +12,12 @@
                         </label>
                     </div>
                 </div>
-            <% if $Up.HasColumns && $MultipleOf($Up.ColumnCount) %></div>
-            <div class="row"><% end_if %>
         <% end_loop %>
 
         </div>
     <% else %>
         <% loop $Options %>
-            <div class="radio <% if $Up.Inline %>inline<% end_if %>">
+            <div class="radio<% if $Up.Inline %>-inline<% end_if %>">
                 <label>
                     <input id="$ID" class="radio" name="$Name" type="radio" value="$Value"<% if $isChecked %>
                            checked="checked"<% end_if %><% if $isDisabled %> disabled="disabled"<% end_if %>>

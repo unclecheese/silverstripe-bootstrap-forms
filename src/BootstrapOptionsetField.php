@@ -30,12 +30,6 @@ class BootstrapOptionsetField extends BootstrapFormField
     protected $columnCounts = [];
 
     /**
-     * Number of columns in the options layout
-     * @var int
-     */
-    protected $numberOfColumns;
-
-    /**
      * True if fields should be displayed inline
      * @var bool
      */
@@ -86,11 +80,8 @@ class BootstrapOptionsetField extends BootstrapFormField
                     $allowed_keys));
         }
 
-        $this->columnCounts = $cols;
-
-        $maxSpan = max(array_values($this->columnCounts));
-        $minSpan = min(array_values($this->columnCounts));
-        $this->numberOfColumns = ceil($maxSpan / $minSpan);
+        $this->owner->columnCounts = $cols;
+        $this->setInline(true);
 
         return $this->owner;
     }
@@ -103,17 +94,7 @@ class BootstrapOptionsetField extends BootstrapFormField
      */
     public function HasColumns()
     {
-        return !empty($this->columnCounts) && $this->getInline();
-    }
-
-    /**
-     * Number of columns in the layout
-     *
-     * @return  int
-     */
-    public function ColumnCount()
-    {
-        return $this->numberOfColumns;
+        return !empty($this->owner->columnCounts) && $this->getInline();
     }
 
     /**
@@ -124,20 +105,10 @@ class BootstrapOptionsetField extends BootstrapFormField
     public function ColumnClasses()
     {
         $classes = [];
-        foreach ($this->columnCounts as $colName => $val) {
+        foreach ($this->owner->columnCounts as $colName => $val) {
             $classes[] = "col-{$colName}-{$val}";
         }
 
         return implode(" ", $classes);
-    }
-
-    /**
-     * Number of options per column
-     *
-     * @return  int
-     */
-    public function PerColumn()
-    {
-        return ceil(count($this->owner->getSource()) / $this->numberOfColumns);
     }
 }
