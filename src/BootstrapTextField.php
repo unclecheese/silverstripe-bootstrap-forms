@@ -43,12 +43,8 @@ class BootstrapTextField extends BootstrapFormField
 
     /**
      * Sets the width of the text field to a pre-configured size. Options include:
-     *    - mini
-     *  - small
-     *  - medium
-     *  - large
-     *  - xlarge
-     *  - xxlarge
+     *  - sm
+     *  - lg
      *
      * @param string $text The text to add
      * @return BootstrapTextField
@@ -69,7 +65,7 @@ class BootstrapTextField extends BootstrapFormField
     public function setSpan($span)
     {
         $s = trim(strtolower($span));
-        return $this->owner->addExtraClass("span{$s}");
+        return $this->owner->addExtraClass("col-sm-{$s}");
     }
 
 

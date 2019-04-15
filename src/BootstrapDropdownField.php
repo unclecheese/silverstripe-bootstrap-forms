@@ -11,7 +11,7 @@ use SilverStripe\i18n\i18n;
  * dropdown fields nice.
  *
  */
-class BootstrapDropdownField extends DropdownField {
+class BootstrapDropdownField extends BootstrapFormField {
 
 
 
@@ -31,4 +31,31 @@ class BootstrapDropdownField extends DropdownField {
 		$this->addExtraClass('selectpicker');
 		return parent::FieldHolder($attributes);
 	}
+
+    /**
+     * Sets the width of the text field to a pre-configured size. Options include:
+     *  - sm
+     *  - lg
+     *
+     * @param string $text The text to add
+     * @return BootstrapTextField
+     */
+    public function setSize($size)
+    {
+        $s = trim(strtolower($size));
+        return $this->owner->addExtraClass("input-{$s}");
+    }
+
+
+    /**
+     * Sets the width of the text field to span grid columns
+     *
+     * @param string $span
+     * @return BootstrapTextField
+     */
+    public function setSpan($span)
+    {
+        $s = trim(strtolower($span));
+        return $this->owner->addExtraClass("col-sm-{$s}");
+    }
 }

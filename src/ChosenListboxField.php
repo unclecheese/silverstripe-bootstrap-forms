@@ -2,6 +2,7 @@
 
 namespace UncleCheese\BootstrapForms;
 
+use SilverStripe\Core\Config\Config;
 use SilverStripe\Forms\ListboxField;
 use SilverStripe\View\Requirements;
 
@@ -46,8 +47,13 @@ class ChosenListboxField extends ListboxField
      */
     public function FieldHolder($attributes = [])
     {
-        Requirements::javascript(FRAMEWORK_DIR . "/admin/thirdparty/chosen/chosen/chosen.jquery.js");
-        Requirements::css(FRAMEWORK_DIR . "/admin/thirdparty/chosen/chosen/chosen.css");
+        if (!Config::inst()->get(BootstrapForm::class, 'jquery_included')) {
+            Requirements::javascript('silverstripe/admin: thirdparty/jquery/jquery.js');
+        }
+
+        Requirements::javascript(BOOTSTRAP_FORMS_DIR . "/javascript/chosen/chosen.jquery.js");
+        Requirements::css(BOOTSTRAP_FORMS_DIR . "/javascript/chosen/chosen.css");
+        
         $this->addExtraClass('chosen');
         if (!$this->getAttribute('data-search-threshold')) {
             $this->setSearchThreshold(self::$default_search_threshold);

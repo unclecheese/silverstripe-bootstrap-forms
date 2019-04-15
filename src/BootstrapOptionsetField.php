@@ -36,6 +36,12 @@ class BootstrapOptionsetField extends BootstrapFormField
     protected $numberOfColumns;
 
     /**
+     * True if fields should be displayed inline
+     * @var bool
+     */
+    protected $inline = false;
+
+    /**
      * Enable or disable "inline" presentation, in which
      * buttons are laid out left to right, rather than top to bottom.
      *
@@ -44,8 +50,20 @@ class BootstrapOptionsetField extends BootstrapFormField
      */
     public function setInline($bool = true)
     {
-        $this->owner->Inline = $bool;
+        $this->owner->inline = $bool;
         return $this->owner;
+    }
+
+    /**
+     * return true if the field is set to be displayed inline
+     *
+     * @return Boolean
+     */
+    public function getInline() {
+        if($this->owner->hasField('inline')){
+            return $this->owner->inline;
+        }
+        return false;
     }
 
     /**
@@ -85,7 +103,7 @@ class BootstrapOptionsetField extends BootstrapFormField
      */
     public function HasColumns()
     {
-        return !empty($this->columnCounts);
+        return !empty($this->columnCounts) && $this->getInline();
     }
 
     /**

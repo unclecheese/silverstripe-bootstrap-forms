@@ -48,5 +48,18 @@ class BootstrapFormAction extends DataExtension
         return $this->owner;
     }
 
+    /**
+     * Sets the width of the text field to span grid columns
+     *
+     * @param string $span
+     * @return BootstrapTextField
+     */
+    public function setSpan($span)
+    {
+        $s = trim(strtolower($span));
+        $this->owner->addExtraClass("inline");
+        return $this->owner->addExtraClass("col-sm-{$s}");
+    }
+
 
 }

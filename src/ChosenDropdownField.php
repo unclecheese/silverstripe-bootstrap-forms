@@ -47,12 +47,10 @@ class ChosenDropdownField extends DropdownField
 
         if (!Config::inst()->get(BootstrapForm::class, 'jquery_included')) {
             Requirements::javascript('silverstripe/admin: thirdparty/jquery/jquery.js');
-            Requirements::javascript(BOOTSTRAP_FORMS_DIR . "/javascript/chosen/chosen.jquery.js");
-            Requirements::css(BOOTSTRAP_FORMS_DIR . "/javascript/chosen/chosen.css");
-        } else {
-            Requirements::javascript(BOOTSTRAP_FORMS_DIR . "/javascript/chosen/chosen.jquery.js");
-            Requirements::css(BOOTSTRAP_FORMS_DIR . "/javascript/chosen/chosen.css");
         }
+
+        Requirements::javascript(BOOTSTRAP_FORMS_DIR . "/javascript/chosen/chosen.jquery.js");
+        Requirements::css(BOOTSTRAP_FORMS_DIR . "/javascript/chosen/chosen.css");
 
         $this->addExtraClass('chosen');
         if (!$this->getAttribute('data-search-threshold')) {

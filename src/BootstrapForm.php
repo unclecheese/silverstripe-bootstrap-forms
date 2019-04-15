@@ -16,32 +16,26 @@ use SilverStripe\View\Requirements;
  * @package boostrap_forms
  */
 class BootstrapForm extends Form {
-
-
-
-
+    
 	/**
 	 * @var string The template that will render this form
 	 */
+	
 	protected $template = "BootstrapForm";
-
-
-
+	
 	/**
 	 * @var string The layout of the form.
 	 * @see BootstrapForm::setLayout()
 	 */
 	protected $formLayout = "vertical";
-
-
+	
     /**
      * The label grid class for the bootstrap 3 horizontal form
      *
      * @var String
      */
     protected $gridLabelClass = "col-sm-3";
-
-
+    
     /**
      * The input grid class for the bootstrap 3 horizontal form
      *
@@ -55,44 +49,7 @@ class BootstrapForm extends Form {
      * @var String
      */
     protected $gridActionClass = "col-sm-offset-3 col-sm-9";
-
-
-
-	/**
-	 * Sets form to disable/enable inclusion of Bootstrap CSS
-	 *
-	 * @deprecated In 3.1
-	 * @param bool $bool
-	 */
-	public static function set_bootstrap_included($bool = true) {
-		Config::inst()->update(BootstrapForm::class, "bootstrap_included", $bool);
-	}
-
-
-
-
-	/**
-	 * Sets form to disable/enable inclusion of jQuery
-	 *
-	 * @deprecated In 3.1
-	 * @param bool $bool
-	 */
-	public static function set_jquery_included($bool = true) {
-		Config::inst()->update(BootstrapForm::class, "jquery_included", $bool);
-	}
-
-
-	/**
-	 * Sets form to disable/enable inclusion of bootstrap forms js
-	 *
-	 * @deprecated In 3.1
-	 * @param bool $bool
-	 */
-	public static function set_bootstrap_form_included($bool = true) {
-		Config::inst()->update(BootstrapForm::class, "bootstrap_form_included", $bool);
-	}
-
-
+    
 	/**
 	 * Applies the Bootstrap transformation to the fields and actiosn
 	 * of the form
@@ -105,8 +62,7 @@ class BootstrapForm extends Form {
 
 		return $this;
 	}
-
-
+	
 	/**
 	 * Sets the desired layout of the form. Options include:
 	 *		- "vertical" (default)
@@ -122,8 +78,7 @@ class BootstrapForm extends Form {
 		$this->formLayout = trim(strtolower($layout));
 		return $this;
 	}
-
-
+	
     /**
      * Sets the desired label Grid Class of the form. Options include:
      *		- "col-sm-3" (default)
@@ -137,8 +92,7 @@ class BootstrapForm extends Form {
         $this->gridLabelClass = strtolower($class);
         return $this;
     }
-
-
+    
     /**
      * Sets the desired Input Grid Class of the form. Options include:
      *		- "col-sm-9" (default)
@@ -152,8 +106,7 @@ class BootstrapForm extends Form {
         $this->gridInputClass = strtolower($class);
         return $this;
     }
-
-
+    
     /**
      * Sets the desired Action Grid Class of the form. Options include:
      *		- "col-sm-offset-3 col-sm-9" (default)
@@ -167,8 +120,7 @@ class BootstrapForm extends Form {
         $this->gridActionClass = strtolower($class);
         return $this;
     }
-
-
+    
 	/**
 	 * Adds a "well," or sunken background and border, to the form
 	 *
@@ -187,13 +139,13 @@ class BootstrapForm extends Form {
 	 * @return string
 	 */
 	public function forTemplate() {
-        if($this->config()->get('bootstrap_included')!=false) {
+        if($this->config()->get('bootstrap_included')) {
             Requirements::css(BOOTSTRAP_FORMS_DIR.'/css/bootstrap.css');
 		}
-		if($this->config()->get('jquery_included')!=false) {
+		if($this->config()->get('jquery_included')) {
 			Requirements::javascript("silverstripe/admin:thirdparty/jquery/jquery.js");
 		}
-		if($this->config()->get('bootstrap_form_included')!=false) {
+		if($this->config()->get('bootstrap_form_included')) {
 			Requirements::javascript(BOOTSTRAP_FORMS_DIR."/javascript/bootstrap_forms.js");
 		}
 		$this->addExtraClass("form-{$this->formLayout}");

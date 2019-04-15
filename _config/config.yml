@@ -12,6 +12,9 @@ UncleCheese\BootstrapForms\BootstrapForm:
 SilverStripe\Forms\FormField:
   extensions:
     - UncleCheese\BootstrapForms\BootstrapFormField
+SilverStripe\Forms\DropdownField:
+  extensions:
+    - UncleCheese\BootstrapForms\BootstrapDropdownField
 SilverStripe\Forms\TextField:
   extensions:
     - UncleCheese\BootstrapForms\BootstrapTextField
