@@ -1,0 +1,14 @@
+mappings:
+  ChosenDropdownField: UncleCheese\BootstrapForms\ChosenDropdownField
+  BootstrapUserForm: UncleCheese\BootstrapForms\BootstrapUserForm
+  BootstrapFormAction: UncleCheese\BootstrapForms\BootstrapFormAction
+  BootstrapTextField: UncleCheese\BootstrapForms\BootstrapTextField
+  BootstrapFormField: UncleCheese\BootstrapForms\BootstrapFormField
+  ChosenListboxField: UncleCheese\BootstrapForms\ChosenListboxField
+  SimpleHtmlEditorField: UncleCheese\BootstrapForms\SimpleHtmlEditorField
+  BootstrapButtonGroupField: UncleCheese\BootstrapForms\BootstrapButtonGroupField
+  BootstrapDropdownField: UncleCheese\BootstrapForms\BootstrapDropdownField
+  BootstrapForm: UncleCheese\BootstrapForms\BootstrapForm
+  BootstrapFieldList: UncleCheese\BootstrapForms\BootstrapFieldList
+  BootstrapOptionsetField: UncleCheese\BootstrapForms\BootstrapOptionsetField
+  BootstrapMemberLoginForm: UncleCheese\BootstrapForms\BootstrapMemberLoginForm

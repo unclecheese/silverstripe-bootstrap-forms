@@ -1,5 +1,7 @@
 <?php
 
+namespace UncleCheese\BootstrapForms;
+
 use SilverStripe\Control\Controller;
 use SilverStripe\Security\LoginForm;
 use SilverStripe\Security\MemberAuthenticator\MemberLoginForm;

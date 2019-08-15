@@ -1,5 +1,7 @@
 <?php
 
+namespace UncleCheese\BootstrapForms;
+
 use SilverStripe\Core\Convert;
 use SilverStripe\Forms\FormField;
 use SilverStripe\Core\Config\Config;

@@ -1,5 +1,7 @@
 <?php
 
+namespace UncleCheese\BootstrapForms;
+
 use SilverStripe\ORM\ArrayList;
 use SilverStripe\View\ArrayData;
 use SilverStripe\View\Requirements;

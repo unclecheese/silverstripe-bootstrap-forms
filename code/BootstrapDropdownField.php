@@ -1,9 +1,12 @@
 <?php
 
+namespace UncleCheese\BootstrapForms;
+
 use SilverStripe\Core\Config\Config;
 use SilverStripe\i18n\i18n;
 use SilverStripe\View\Requirements;
 use SilverStripe\Forms\DropdownField;
+use Translatable;
 
 /**
  * Defines a FormField that uses the bootstrap-select JS plugin for making

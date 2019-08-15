@@ -1,5 +1,7 @@
 <?php
 
+namespace UncleCheese\BootstrapForms;
+
 use SilverStripe\Core\Injector\Injector;
 use SilverStripe\Forms\CompositeField;
 use SilverStripe\Forms\TabSet;

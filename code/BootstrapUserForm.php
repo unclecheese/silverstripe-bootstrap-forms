@@ -1,5 +1,7 @@
 <?php
 
+namespace UncleCheese\BootstrapForms;
+
 use SilverStripe\Core\Extension;
 
 

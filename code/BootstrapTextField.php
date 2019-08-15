@@ -1,5 +1,7 @@
 <?php
 
+namespace UncleCheese\BootstrapForms;
+
 /**
  * Creates a {@link TextField} or a subclass thereof that is compatible with the
  * Twitter Bootstrap CSS framework.

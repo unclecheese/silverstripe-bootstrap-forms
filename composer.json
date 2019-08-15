@@ -5,20 +5,26 @@
     "keywords": ["silverstripe", "bootstrap", "forms", "twitter"],
 	"license": "BSD-3-Clause",
     "authors": [
-    {
-        "name": "Uncle Cheese",
-        "email": "unclecheese@leftandmain.com"
-    }
+        {
+            "name": "Uncle Cheese",
+            "email": "unclecheese@leftandmain.com"
+        }
     ],
-    "require":
-    {
-        "silverstripe/framework": "^4,
-	    "silverstripe/cms": ""^4"
+    "require": {
+        "silverstripe/framework": "^4",
+	    "silverstripe/cms": "^4"
     },
-    "replace": {"silverstripe/bootstrap-forms": "*"},
+    "replace": {
+        "silverstripe/bootstrap-forms": "*"
+    },
     "extra": {
         "branch-alias": {
             "dev-master": "2.x-dev"
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "UncleCheese\\BootstrapForms\\": "code/"
         }
     }
 }

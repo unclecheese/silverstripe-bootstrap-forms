@@ -1,5 +1,8 @@
 <?php
 
+namespace UncleCheese\BootstrapForms;
+
+use Exception;
 
 /**
  * Creates a {@link OptionsetField} or a subclass thereof that is compatible with the
