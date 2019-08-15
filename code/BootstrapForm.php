@@ -1,5 +1,9 @@
 <?php
 
+use SilverStripe\Core\Config\Config;
+use SilverStripe\View\Requirements;
+use SilverStripe\Forms\Form;
+
 /**
  * Builds a form that renders {@link FormField} objects
  * using templates that are compatible with Twitter Bootstrap.

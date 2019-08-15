@@ -1,5 +1,8 @@
 <?php
 
+use SilverStripe\View\Requirements;
+use SilverStripe\Forms\TextareaField;
+
 /**
  * Defines a formfield that has HTML editing capability
  * using the TinyMCE plugin

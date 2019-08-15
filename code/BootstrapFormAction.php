@@ -1,5 +1,7 @@
 <?php
 
+use SilverStripe\ORM\DataExtension;
+
 /**
  * Creates a {@link FormAction} object that is compatible
  * with the Twitter Bootstrap CSS framework.

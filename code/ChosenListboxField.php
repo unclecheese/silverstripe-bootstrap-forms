@@ -1,5 +1,8 @@
 <?php
 
+use SilverStripe\View\Requirements;
+use SilverStripe\Forms\ListboxField;
+
 class ChosenListboxField extends ListboxField {
 	/**
 	 * @var int The number of items that need to appear in the dropdown

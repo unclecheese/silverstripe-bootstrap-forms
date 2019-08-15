@@ -1,5 +1,7 @@
 <?php
 
+use SilverStripe\Core\Extension;
+
 
 
 class BootstrapUserForm extends Extension {

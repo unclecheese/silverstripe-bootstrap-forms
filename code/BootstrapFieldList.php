@@ -1,5 +1,13 @@
 <?php
 
+use SilverStripe\Core\Injector\Injector;
+use SilverStripe\Forms\CompositeField;
+use SilverStripe\Forms\TabSet;
+use SilverStripe\Forms\Tab;
+use SilverStripe\View\SSViewer;
+use SilverStripe\Core\ClassInfo;
+use SilverStripe\Core\Extension;
+
 
 
 class BootstrapFieldList extends Extension {

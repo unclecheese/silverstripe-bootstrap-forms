@@ -1,5 +1,10 @@
 <?php
 
+use SilverStripe\Core\Convert;
+use SilverStripe\Forms\FormField;
+use SilverStripe\Core\Config\Config;
+use SilverStripe\ORM\DataExtension;
+
 /**
  * The base class for creating a {@link FormField} object
  * that is compatible with the Twitter Bootstrap CSS framework.

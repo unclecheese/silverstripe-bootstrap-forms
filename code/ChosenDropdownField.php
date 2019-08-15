@@ -1,5 +1,9 @@
 <?php
 
+use SilverStripe\Core\Config\Config;
+use SilverStripe\View\Requirements;
+use SilverStripe\Forms\DropdownField;
+
 /**
  * Defines a FormField that uses the Chosen JS plugin for making
  * dropdown fields nice.
