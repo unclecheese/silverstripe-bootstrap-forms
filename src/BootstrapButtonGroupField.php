@@ -1,5 +1,10 @@
 <?php
+namespace UncleCheese\BootstrapForms;
 
+use SilverStripe\ORM\ArrayList;
+use SilverStripe\View\ArrayData;
+use SilverStripe\View\Requirements;
+use SilverStripe\Forms\FormField;
 
 class BootstrapButtonGroupField extends FormField
 {
@@ -34,16 +39,16 @@ class BootstrapButtonGroupField extends FormField
 				'Selected' => $this->Value() == $val
 			)));
 		}
-		
-		return $options;		
+
+		return $options;
 	}
 
 
 
 	public function Field($attributes = array ())
 	{
-		Requirements::javascript(BOOTSTRAP_FORMS_DIR."/javascript/bootstrap_forms.js");
-		return $this->renderWith('BootstrapButtonGroupField');
+		Requirements::javascript("unclecheese/bootstrap-forms: javascript/bootstrap_forms.js");
+		return $this->renderWith('UncleCheese\BootstrapForms\BootstrapButtonGroupField');
 	}
 
 
