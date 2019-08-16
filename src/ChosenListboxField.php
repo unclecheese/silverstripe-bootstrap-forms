@@ -51,9 +51,9 @@ class ChosenListboxField extends ListboxField
             Requirements::javascript('silverstripe/admin: thirdparty/jquery/jquery.js');
         }
 
-        Requirements::javascript(BOOTSTRAP_FORMS_DIR . "/javascript/chosen/chosen.jquery.js");
-        Requirements::css(BOOTSTRAP_FORMS_DIR . "/javascript/chosen/chosen.css");
-        
+        Requirements::javascript("unclecheese/bootstrap-forms: javascript/chosen/chosen.jquery.js");
+        Requirements::css("unclecheese/bootstrap-forms: javascript/chosen/chosen.css");
+
         $this->addExtraClass('chosen');
         if (!$this->getAttribute('data-search-threshold')) {
             $this->setSearchThreshold(self::$default_search_threshold);

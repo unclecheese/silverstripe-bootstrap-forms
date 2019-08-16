@@ -24,9 +24,9 @@ class BootstrapDropdownField extends BootstrapFormField {
 	public function FieldHolder($attributes = array ()) {
 		if(!Config::inst()->get(BootstrapForm::class, 'bootstrap_select_included')) {
 			$current_locale = i18n::get_locale();
-			Requirements::javascript(BOOTSTRAP_FORMS_DIR."/javascript/bootstrap-select/js/bootstrap-select.min.js");
-			Requirements::javascript(BOOTSTRAP_FORMS_DIR."/javascript/bootstrap-select/js/i18n/defaults-{$current_locale}.js");
-			Requirements::css(BOOTSTRAP_FORMS_DIR."/javascript/bootstrap-select/css/bootstrap-select.min.css");
+			Requirements::javascript("unclecheese/bootstrap-forms: javascript/bootstrap-select/js/bootstrap-select.min.js");
+			Requirements::javascript("unclecheese/bootstrap-forms: javascript/bootstrap-select/js/i18n/defaults-{$current_locale}.js");
+			Requirements::css("unclecheese/bootstrap-forms: javascript/bootstrap-select/css/bootstrap-select.min.css");
 		}
 		$this->addExtraClass('selectpicker');
 		return parent::FieldHolder($attributes);
