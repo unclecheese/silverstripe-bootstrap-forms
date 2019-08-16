@@ -24,10 +24,10 @@ class BootstrapFieldList extends Extension {
 	 * Transforms all fields in the FieldList to use Bootstrap templates
 	 * @return FieldList
 	 */
-	public function bootstrapify() {		
+	public function bootstrapify() {
 		foreach($this->owner as $f) {
 
-			$sng = Injector::inst()->get($f->class, true, ['dummy', '']);
+			$sng = Injector::inst()->get(get_class($f), true, ['dummy', '']);
 
 			if(isset($this->ignores[$f->getName()])) continue;
 
@@ -49,19 +49,20 @@ class BootstrapFieldList extends Extension {
 
 			// If the user has customised the holder template already, don't apply the default one.
 			if($sng->getFieldHolderTemplate() == $f->getFieldHolderTemplate()) {
-				$template = "Bootstrap{$f->class}_holder";			
-				if(SSViewer::hasTemplate($template)) {					
-					$f->setFieldHolderTemplate($template);				
+                $className = substr(strrchr(get_class($f), "\\"), 1);
+			    $template = "UncleCheese\\BootstrapForms\\Bootstrap{$className}_holder";
+				if(SSViewer::hasTemplate($template)) {
+					$f->setFieldHolderTemplate($template);
 				}
-				else {				
-					$f->setFieldHolderTemplate("BootstrapFieldHolder");
+				else {
+					$f->setFieldHolderTemplate("UncleCheese\\BootstrapForms\\BootstrapFieldHolder");
 				}
 
 			}
 
 			// If the user has customised the field template already, don't apply the default one.
 			if($sng->getTemplate() == $f->getTemplate()) {
-				foreach(array_reverse(ClassInfo::ancestry($f)) as $className) {						
+				foreach(array_reverse(ClassInfo::ancestry($f)) as $className) {
 					$bootstrapCandidate = "Bootstrap{$className}";
 					$nativeCandidate = $className;
 					if(SSViewer::hasTemplate($bootstrapCandidate)) {
@@ -78,12 +79,12 @@ class BootstrapFieldList extends Extension {
 			}
 		}
 
-		return $this->owner;		
+		return $this->owner;
 	}
 
 	/**
 	 * Adds this field as ignored. Should not take on boostrap transformation
-	 * 
+	 *
 	 * @param  string $field The name of the form field
 	 * @return FieldList
 	 */

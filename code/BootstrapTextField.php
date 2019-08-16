@@ -24,8 +24,6 @@ class BootstrapTextField extends BootstrapFormField {
 		return $this->owner;
 	}
 
-
-
 	/**
 	 * Adds text immediately to the right, abut the form field
 	 *

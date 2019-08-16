@@ -265,9 +265,9 @@ class BootstrapFormField extends DataExtension {
 	 * @param  FormField $field
 	 */
 	public function onBeforeRender (FormField $field) {
-        $inline_fields = Config::inst()->get('BootstrapForm','inline_fields');
+        $inline_fields = Config::inst()->get(BootstrapForm::class,'inline_fields');
 
-        if(!in_array($field->class, $inline_fields )) {
+        if(!in_array(get_class($field), $inline_fields )) {
             $field->addExtraClass('form-control');
         }
 	}

@@ -189,13 +189,13 @@ class BootstrapForm extends Form {
 	 */
 	public function forTemplate() {
         if($this->stat('bootstrap_included')!=false) {
-            Requirements::css(BOOTSTRAP_FORMS_DIR.'/css/bootstrap.css');
+            Requirements::css('unclecheese/bootstrap-forms: css/bootstrap.css');
 		}
 		if($this->stat('jquery_included')!=false) {
-			Requirements::javascript(THIRDPARTY_DIR."/jquery/jquery.js");
+			Requirements::javascript('silverstripe/adimin: thirdparty/jquery/jquery.js');
 		}
 		if(!$this->stat('bootstrap_form_included')!=false) {
-			Requirements::javascript(BOOTSTRAP_FORMS_DIR."/javascript/bootstrap_forms.js");
+			Requirements::javascript('unclecheese/bootstrap-forms: javascript/bootstrap_forms.js');
 		}
 		$this->addExtraClass("form-{$this->formLayout}");
 
